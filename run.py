@@ -1,3 +1,27 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+import random
+
+animal_list = [
+    "Alligator",
+    "Cheetah",
+    "Chimpanzee",
+    "Crocodile",
+    "Dolphin",
+    "Elephant",
+    "Flamingo",
+    "Giraffe",
+    "Hedgehog",
+    "Kangaroo",
+    "Leopard",
+    "Octopus",
+    "Orangutan",
+    "Ostrich",
+    "Penguin",
+    "Platypus",
+    "Rhinoceros",
+    "Seahorse",
+    "Starfish",
+    "Tortoise"
+]
+
+chosen_word = random.choice(animal_list)
+print(chosen_word)
