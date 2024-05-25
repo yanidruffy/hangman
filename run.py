@@ -63,13 +63,21 @@ def update_display(animal, player_choice, display):
     print(display)
     return display
 
-def tries_check(animal, player_choice, tries):
+def attempts_check(animal, player_choice, attempts, game_loser):
     if player_choice not in animal:
-        tries -= 1
-        print(f"Incorrect, remaining tries: {tries}")
-        if tries == 0:
+        attempts -= 1
+        print(f"Incorrect, remaining attempts: {attempts}")
+        if attempts == 0:
             print("Game Over.")
-    return tries
+            game_loser = True
+    return attempts, game_loser
+
+def win_condition(display, game_winner):
+    if "_" not in display:
+        print("You win.")
+        game_won = True
+    
+    return game_winner
 
 def main():
     """
@@ -78,11 +86,14 @@ def main():
     print("Welcome Message")
     animal = animal_generator()
     display = display_generator(animal)
-    tries = 7
+    attempts = 7
+    game_end = False
     print(animal)
 
-    while tries > 0:
+    while not game_end:
         player_choice = valid_check(display)
         display = update_display(animal, player_choice, display)
-        tries = tries_check(animal, player_choice, tries)
+        attempts, game_end = attempts_check(animal, player_choice, attempts, game_end)
+        game_end = win_condition(display, game_end)
+    
 main()
