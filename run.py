@@ -1,27 +1,21 @@
 import random
+from hangman import LOGO, HANGMAN_PICS, ANIMAL_LIST
 
-animal_list = [
-    "Alligator",
-    "Cheetah",
-    "Chimpanzee",
-    "Crocodile",
-    "Dolphin",
-    "Elephant",
-    "Flamingo",
-    "Giraffe",
-    "Hedgehog",
-    "Kangaroo",
-    "Leopard",
-    "Octopus",
-    "Orangutan",
-    "Ostrich",
-    "Penguin",
-    "Platypus",
-    "Rhinoceros",
-    "Seahorse",
-    "Starfish",
-    "Tortoise"
-]
+def print_introduction(attempts):
+    """
+    Prints welcome message and instructions of the game.
+
+    Parameters:
+        attempts (int): Remaining attempts
+    """
+    introduction = (
+        "Welcome to Hangman!\n\n"
+        "Hangman is a simple word guessing game. You are trying to guess the name of an ANIMAL.\n"
+        f"You have {attempts} attempts to guess the animal correctly.\n"
+        "Good luck.\n"
+    )
+    print(LOGO)
+    print(introduction)
 
 def valid_check(display, letters):
     """
@@ -128,18 +122,19 @@ def main():
     """
     Main function to start the game.
     """
-    print("Welcome Message")
-    animal = random.choice(animal_list).lower()
-    display = display_generator(animal)
+    attempts = 6
     letters = set()
-    attempts = 7
     game_end = False
+    
+    print_introduction(attempts)
+    animal = random.choice(ANIMAL_LIST).lower()
+    display = display_generator(animal)
     print(animal)
-
     while not game_end:
         player_choice = valid_check(display, letters)
         display = update_display(animal, player_choice, display)
         attempts, game_end = attempts_check(animal, player_choice, attempts, game_end)
+        print(HANGMAN_PICS[attempts])
         game_end = win_condition(display, game_end)
 
 main()

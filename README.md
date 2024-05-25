@@ -31,3 +31,6 @@ The deployment terminal is set to 80 columns by 24 rows. That means that each li
 
 Happy coding!
 <!-- https://www.programiz.com/python-programming/docstrings -->
+<!-- https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c -->
+<!-- https://ascii.co.uk/art/hangman -->
+<!-- https://www.hangmanwords.com/how-to -->
