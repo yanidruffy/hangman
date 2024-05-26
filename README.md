@@ -34,3 +34,4 @@ Happy coding!
 <!-- https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c -->
 <!-- https://ascii.co.uk/art/hangman -->
 <!-- https://www.hangmanwords.com/how-to -->
+<!-- https://www.asciiart.eu/text-to-ascii-art -->

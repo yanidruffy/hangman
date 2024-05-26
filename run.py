@@ -1,5 +1,5 @@
 import random
-from hangman import LOGO, HANGMAN_PICS, ANIMAL_LIST
+from hangman import LOGO, HANGMAN_PICS, WIN, LOSE, ANIMAL_LIST
 
 def print_introduction(attempts):
     """
@@ -30,12 +30,13 @@ def valid_check(display, letters):
     """
     valid_input = False
     while not valid_input:
-        player_choice = input("Choose a letter:").lower()
+        player_choice = input("Choose a letter:\n").lower()
         if not player_choice.isalpha() or len(player_choice) != 1:
-            print("Error, try again\n")
+            print(f"'{player_choice}' is not a valid option. Please enter a single alphabetic character.\n")
         elif player_choice in display or player_choice in letters:
-            print(f"Invalid")
+            print(f"You already guessed '{player_choice}'. Try a different letter.\n")
         else:
+            print(f"You chose: '{player_choice}'\n")
             valid_input = True
     letters.add(player_choice)
     return player_choice
@@ -95,9 +96,10 @@ def attempts_check(animal, player_choice, attempts, game_loser):
     """
     if player_choice not in animal:
         attempts -= 1
-        print(f"Incorrect, remaining attempts: {attempts}")
+        print(f"Incorrect, '{player_choice}' is not in the word. Remaining attempts: {attempts}")
         if attempts == 0:
-            print("Game Over.")
+            print(LOSE)
+            print("You have no attempts left.")
             game_loser = True
     return attempts, game_loser
 
@@ -113,7 +115,8 @@ def win_condition(display, game_winner):
         game_winner(bool): Updated Game state
     """
     if "_" not in display:
-        print("You win.")
+        print(WIN)
+        print("Congratulations! You guessed correctly and won the game.")
         game_winner = True
     
     return game_winner
