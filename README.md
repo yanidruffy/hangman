@@ -36,3 +36,7 @@ Happy coding!
 <!-- https://www.hangmanwords.com/how-to -->
 <!-- https://www.asciiart.eu/text-to-ascii-art -->
 <!-- https://www.delftstack.com/howto/python/python-clear-console/ -->
+<!-- Spence mentor:
+    https://pep8ci.herokuapp.com/
+    https://realpython.com/if-name-main-python/
+    linter, join, strip, restart -->

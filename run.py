@@ -38,7 +38,7 @@ def valid_check(display, letters):
     """
     valid_input = False
     while not valid_input:
-        player_choice = input("Choose a letter:\n").lower()
+        player_choice = input("Choose a letter:\n").lower().strip()
         if not player_choice.isalpha() or len(player_choice) != 1:
             print(f"'{player_choice}' is not a valid option. Please enter a single alphabetic character.\n")
         elif player_choice in display or player_choice in letters:
@@ -61,7 +61,7 @@ def display_generator(animal):
         display (list): Initial display for the chosen animal
     """
     display = ["_" for char in animal]
-    print(display)
+    print(" ".join(display))
     return display
 
 def update_display(animal, player_choice, display):
@@ -142,8 +142,8 @@ def main():
     while not game_end:
         player_choice = valid_check(display, letters)
         display = update_display(animal, player_choice, display)
-        attempts, game_end = attempts_check(animal, player_choice, attempts, game_end)
         print(HANGMAN_PICS[attempts])
+        attempts, game_end = attempts_check(animal, player_choice, attempts, game_end)
         game_end = win_condition(display, game_end)
 
 main()
