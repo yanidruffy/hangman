@@ -113,8 +113,8 @@ def attempts_check(animal, player_choice, attempts, game_loser):
     if player_choice not in animal:
         attempts -= 1
         print(
-            f"Incorrect, '{player_choice}' is not in the word."
-            "Remaining attempts: {attempts}")
+            f"Incorrect, '{player_choice}' is not in the word. "
+            f"Remaining attempts: {attempts}")
         if attempts == 0:
             print(LOSE)
             print("You have no attempts left.")
@@ -139,8 +139,33 @@ def win_condition(display, game_winner):
         print(WIN)
         print("Congratulations! You guessed correctly and won the game.")
         game_winner = True
-
     return game_winner
+
+
+def play_again():
+    """
+    A prompt for the player to restart the game and check if input is valid.
+    """
+    choices = ["yes", "no"]
+    choice = ""
+
+    while choice == "":
+        choice = input(
+            "Would you like to plain again?"
+            "(Yes or No): "
+            ).lower().strip()
+        if choice not in choices:
+            print(
+                f"{choice} is an invalid input,"
+                "please type in 'Yes' or 'No'."
+                )
+            choice = ""
+    if choice == "yes":
+        print("Awesome! Let's play.")
+        main()
+    else:
+        print("Thanks for playing. Goodbye!")
+        exit()
 
 
 def main():
@@ -162,6 +187,7 @@ def main():
         attempts, game_end = attempts_check(animal, player_choice,
                                             attempts, game_end)
         game_end = win_condition(display, game_end)
+    play_again()
 
 
 if __name__ == "__main__":
