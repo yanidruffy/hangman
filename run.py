@@ -1,5 +1,12 @@
 import random
+import os
 from hangman import LOGO, HANGMAN_PICS, WIN, LOSE, ANIMAL_LIST
+
+def clear_console():
+    """
+    Clears console depending on the operating system.
+    """
+    return os.system("cls" if os.name in ("nt", "dos") else "clear")
 
 def print_introduction(attempts):
     """
@@ -10,7 +17,8 @@ def print_introduction(attempts):
     """
     introduction = (
         "Welcome to Hangman!\n\n"
-        "Hangman is a simple word guessing game. You are trying to guess the name of an ANIMAL.\n"
+        "Hangman is a simple word guessing game.\n"
+        "You are trying to guess the name of an ANIMAL.\n"
         f"You have {attempts} attempts to guess the animal correctly.\n"
         "Good luck.\n"
     )
@@ -36,6 +44,7 @@ def valid_check(display, letters):
         elif player_choice in display or player_choice in letters:
             print(f"You already guessed '{player_choice}'. Try a different letter.\n")
         else:
+            clear_console()
             print(f"You chose: '{player_choice}'\n")
             valid_input = True
     letters.add(player_choice)
@@ -51,12 +60,7 @@ def display_generator(animal):
     Returns:
         display (list): Initial display for the chosen animal
     """
-
-    display = []
-
-    for char in animal:
-        display += "_"
-
+    display = ["_" for char in animal]
     print(display)
     return display
 
@@ -101,6 +105,8 @@ def attempts_check(animal, player_choice, attempts, game_loser):
             print(LOSE)
             print("You have no attempts left.")
             game_loser = True
+    else:
+        print(f"Correct, '{player_choice}' is in the word.")
     return attempts, game_loser
 
 def win_condition(display, game_winner):

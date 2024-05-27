@@ -35,3 +35,4 @@ Happy coding!
 <!-- https://ascii.co.uk/art/hangman -->
 <!-- https://www.hangmanwords.com/how-to -->
 <!-- https://www.asciiart.eu/text-to-ascii-art -->
+<!-- https://www.delftstack.com/howto/python/python-clear-console/ -->
