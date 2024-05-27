@@ -18,7 +18,7 @@ def print_introduction(attempts):
         attempts (int): Remaining attempts
     """
     introduction = (
-        "Welcome to Hangman!\n\n"
+        "Welcome to hangman!\n\n"
         "Hangman is a simple word guessing game.\n"
         "You are trying to guess the name of an ANIMAL.\n"
         f"You have {attempts} attempts to guess the animal correctly.\n"
@@ -156,11 +156,12 @@ def play_again():
             ).lower().strip()
         if choice not in choices:
             print(
-                f"{choice} is an invalid input,"
+                f"{choice} is an invalid input, "
                 "please type in 'Yes' or 'No'."
                 )
             choice = ""
     if choice == "yes":
+        clear_console()
         print("Awesome! Let's play.")
         main()
     else:
