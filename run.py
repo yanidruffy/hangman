@@ -2,11 +2,13 @@ import random
 import os
 from hangman import LOGO, HANGMAN_PICS, WIN, LOSE, ANIMAL_LIST
 
+
 def clear_console():
     """
     Clears console depending on the operating system.
     """
     return os.system("cls" if os.name in ("nt", "dos") else "clear")
+
 
 def print_introduction(attempts):
     """
@@ -25,11 +27,12 @@ def print_introduction(attempts):
     print(LOGO)
     print(introduction)
 
+
 def valid_check(display, letters):
     """
     A prompt for the player to choose a letter and check if input is valid.
 
-    Parameter: 
+    Parameter:
         display (list): Current display of the word
         letters (set): Already guessed letters
 
@@ -40,15 +43,22 @@ def valid_check(display, letters):
     while not valid_input:
         player_choice = input("Choose a letter:\n").lower().strip()
         if not player_choice.isalpha() or len(player_choice) != 1:
-            print(f"'{player_choice}' is not a valid option. Please enter a single alphabetic character.\n")
+            print(
+                f"'{player_choice}' is not a valid option."
+                "Please enter a single alphabetic character.\n"
+                )
         elif player_choice in display or player_choice in letters:
-            print(f"You already guessed '{player_choice}'. Try a different letter.\n")
+            print(
+                f"You already guessed '{player_choice}'."
+                "Try a different letter.\n"
+                )
         else:
             clear_console()
             print(f"You chose: '{player_choice}'\n")
             valid_input = True
     letters.add(player_choice)
     return player_choice
+
 
 def display_generator(animal):
     """
@@ -63,6 +73,7 @@ def display_generator(animal):
     display = ["_" for char in animal]
     print(" ".join(display))
     return display
+
 
 def update_display(animal, player_choice, display):
     """
@@ -82,8 +93,9 @@ def update_display(animal, player_choice, display):
         if letter == player_choice:
             display[i] = letter
 
-    print(display)
+    print(" ".join(display).capitalize())
     return display
+
 
 def attempts_check(animal, player_choice, attempts, game_loser):
     """
@@ -100,7 +112,9 @@ def attempts_check(animal, player_choice, attempts, game_loser):
     """
     if player_choice not in animal:
         attempts -= 1
-        print(f"Incorrect, '{player_choice}' is not in the word. Remaining attempts: {attempts}")
+        print(
+            f"Incorrect, '{player_choice}' is not in the word."
+            "Remaining attempts: {attempts}")
         if attempts == 0:
             print(LOSE)
             print("You have no attempts left.")
@@ -109,6 +123,7 @@ def attempts_check(animal, player_choice, attempts, game_loser):
         print(f"Correct, '{player_choice}' is in the word.")
     return attempts, game_loser
 
+
 def win_condition(display, game_winner):
     """
     Check if player has won the game
@@ -116,7 +131,7 @@ def win_condition(display, game_winner):
     Parameters:
         display (list): Current display for the chosen animal
         game_winner (bool): Game state
-    
+
     Returns:
         game_winner(bool): Updated Game state
     """
@@ -124,8 +139,9 @@ def win_condition(display, game_winner):
         print(WIN)
         print("Congratulations! You guessed correctly and won the game.")
         game_winner = True
-    
+
     return game_winner
+
 
 def main():
     """
@@ -134,7 +150,7 @@ def main():
     attempts = 6
     letters = set()
     game_end = False
-    
+
     print_introduction(attempts)
     animal = random.choice(ANIMAL_LIST).lower()
     display = display_generator(animal)
@@ -143,7 +159,10 @@ def main():
         player_choice = valid_check(display, letters)
         display = update_display(animal, player_choice, display)
         print(HANGMAN_PICS[attempts])
-        attempts, game_end = attempts_check(animal, player_choice, attempts, game_end)
+        attempts, game_end = attempts_check(animal, player_choice,
+                                            attempts, game_end)
         game_end = win_condition(display, game_end)
 
-main()
+
+if __name__ == "__main__":
+    main()
