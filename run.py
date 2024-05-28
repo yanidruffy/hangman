@@ -18,7 +18,7 @@ def print_introduction(attempts):
         attempts (int): Remaining attempts
     """
     introduction = (
-        "Welcome to hangman!\n\n"
+        "Welcome to Hangman!\n\n"
         "Hangman is a simple word guessing game.\n"
         "You are trying to guess the name of an ANIMAL.\n"
         f"You have {attempts} attempts to guess the animal correctly.\n"
@@ -49,7 +49,7 @@ def valid_check(display, letters):
                 )
         elif player_choice in display or player_choice in letters:
             print(
-                f"You already guessed '{player_choice}'."
+                f"You already guessed '{player_choice}'. "
                 "Try a different letter.\n"
                 )
         else:
@@ -137,7 +137,7 @@ def win_condition(display, game_winner):
     """
     if "_" not in display:
         print(WIN)
-        print("Congratulations! You guessed correctly and won the game.")
+        print("Congratulations! You got it right!")
         game_winner = True
     return game_winner
 
@@ -151,12 +151,12 @@ def play_again():
 
     while choice == "":
         choice = input(
-            "Would you like to plain again?"
+            "Would you like to play again? "
             "(Yes or No): "
             ).lower().strip()
         if choice not in choices:
             print(
-                f"{choice} is an invalid input, "
+                f"'{choice}' is an invalid input, "
                 "please type in 'Yes' or 'No'."
                 )
             choice = ""
@@ -180,7 +180,6 @@ def main():
     print_introduction(attempts)
     animal = random.choice(ANIMAL_LIST).lower()
     display = display_generator(animal)
-    print(animal)
     while not game_end:
         player_choice = valid_check(display, letters)
         display = update_display(animal, player_choice, display)
