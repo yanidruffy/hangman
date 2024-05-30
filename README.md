@@ -38,22 +38,36 @@ Win or lose, after the game ends, you will be given the choice to play again.
 - **Win or Lose**: ASCII art and message based on win or lose.
 - **Play Again Prompt**: Option to restart the game or not.
 
-<!-- ## Creating the Heroku app
+## Testing
+### Print Statements
+I extensively used print() statements throughout the development of this game to debug and gain insights of my code behaviour:
+ - Input Handling
+ - Function Execution
+ - Game Progression
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+Example:
+```bash
+  print(animal)
+```
 
-1. `heroku/python`
-2. `heroku/nodejs`
+### Bugs
+A bug where the deployment terminal is not totally being cleared. It is only visible when you scroll up the terminal, otherwise it is not.<br>
+The bug usually appears after inputting more than a single character or after multiple invalid inputs.
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+### Validator Testing
+[Python Linter](https://pep8ci.herokuapp.com/#) from Code Institute:
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+## Deployment
 
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line. -->
+This project was deployed using [Heroku](https://id.heroku.com/login):
+- Create a new Heroku app
+- Add two buildpacks from the "Settings" tab in that order:
+    - Python
+    - NodeJS
+- Add Config Vars from the "Settings" tab:
+    - Key: PORT
+    - Value: 8000
+- Connect your GitHub repository and deploy as normal.
 
 
 <!-- https://www.programiz.com/python-programming/docstrings -->
