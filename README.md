@@ -15,7 +15,28 @@ Hangman is a popular word guessing game. In this version, your goal is to guess 
 3. **End of Game**: Guess all the letters correctly before running out of attempts.<br>
 Win or lose, after the game ends, you will be given the choice to play again.
 
+## Features
 
+- Random word selection of animal names
+- Clear feedback
+- ASCII art
+- Remaining attempts and guessed letters tracking
+- Option to play again after the game ends
+
+### Start of the Game
+
+- **Title**: On the top of the page, players are greeted with an ASCII art, spelling the title of the game.
+- **Welcome Message**: Short introduction to the game and it's rules.
+- **Searched Word**: The animal to guess is displayed with underscores for each letter.
+- **User Prompt**: Asking the player to choose a letter.
+
+### During the Game
+- **Validation Response**: Various checks, if player input is valid or not.
+- **Progression**: Visual feedback of hangman progression and remaining attempts.
+
+### End of the Game
+- **Win or Lose**: ASCII art and message based on win or lose.
+- **Play Again Prompt**: Option to restart the game or not.
 
 <!-- ## Creating the Heroku app
 

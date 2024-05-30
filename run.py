@@ -44,7 +44,7 @@ def valid_check(display, letters):
         player_choice = input("Choose a letter:\n").lower().strip()
         if not player_choice.isalpha() or len(player_choice) != 1:
             print(
-                f"'{player_choice}' is not a valid option."
+                f"'{player_choice}' is not a valid option. "
                 "Please enter a single alphabetic character.\n"
                 )
         elif player_choice in display or player_choice in letters:
