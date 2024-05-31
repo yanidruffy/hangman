@@ -39,7 +39,7 @@ Win or lose, after the game ends, you will be given the choice to play again.
 
 ### End of the Game
 ![win](./readme-images/win.png)
-<!-- ![lose](./readme-images/lose.png) -->
+![lose](./readme-images/lose.png)
 - **Win or Lose**: ASCII art and message based on win or lose.
 - **Play Again Prompt**: Option to restart the game or not.
 
