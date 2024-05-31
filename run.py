@@ -115,12 +115,15 @@ def attempts_check(animal, player_choice, attempts, game_loser):
         print(
             f"Incorrect, '{player_choice}' is not in the word. "
             f"Remaining attempts: {attempts}")
-        if attempts == 0:
-            print(LOSE)
-            print("You have no attempts left.")
-            game_loser = True
     else:
         print(f"Correct, '{player_choice}' is in the word.")
+
+    print(HANGMAN_PICS[attempts])
+
+    if attempts == 0:
+        print(LOSE)
+        print("You have no attempts left.")
+        game_loser = True
     return attempts, game_loser
 
 
@@ -183,7 +186,6 @@ def main():
     while not game_end:
         player_choice = valid_check(display, letters)
         display = update_display(animal, player_choice, display)
-        print(HANGMAN_PICS[attempts])
         attempts, game_end = attempts_check(animal, player_choice,
                                             attempts, game_end)
         game_end = win_condition(display, game_end)
