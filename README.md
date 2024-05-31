@@ -1,10 +1,10 @@
 # Hangman
 
-Welcome to [Hangman!](https://ydr-hangman-80c9bb83a43f.herokuapp.com/)
-
 ## Description
 
 Hangman is a popular word guessing game. In this version, your goal is to guess the name of an animal. You only have a certain amount of attempts to guess the word correctly by suggesting letters one at a time. Each incorrect guess reduces your remaining attempts.
+
+Play my version of [Hangman](https://ydr-hangman-80c9bb83a43f.herokuapp.com/)!
 
 ## How to Play
 
@@ -24,19 +24,22 @@ Win or lose, after the game ends, you will be given the choice to play again.
 - Option to play again after the game ends
 
 ### Start of the Game
-
+![startscreen](./readme-images/startscreen.png)
 - **Title**: On the top of the page, players are greeted with an ASCII art, spelling the title of the game.
 - **Welcome Message**: Short introduction to the game and it's rules.
 - **Searched Word**: The animal to guess is displayed with underscores for each letter.
 - **User Prompt**: Asking the player to choose a letter.
 
 ### During the Game
-
+![correct](./readme-images/correct-letter.png)
+![incorrect](./readme-images/incorrect-letter.png)
+![validation](./readme-images/input-validation.png)
 - **Validation Response**: Various checks, if player input is valid or not.
 - **Progression**: Visual feedback of hangman progression and remaining attempts.
 
 ### End of the Game
-
+![win](./readme-images/win.png)
+![lose](./readme-images/lose.png)
 - **Win or Lose**: ASCII art and message based on win or lose.
 - **Play Again Prompt**: Option to restart the game or not.
 
@@ -59,6 +62,7 @@ The bug usually appears after inputting more than a single character or after mu
 
 ### Validator Testing
 [Python Linter](https://pep8ci.herokuapp.com/#) from Code Institute:
+![run-validation](./readme-images/run-linter.png)
 
 ## Deployment
 
